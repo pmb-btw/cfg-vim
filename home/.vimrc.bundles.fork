@@ -58,6 +58,14 @@
         UnBundle 'altercation/vim-colors-solarized'
         Bundle 'agvim/vim-colors-solarized'
 "   }
+"   New bundles {
+        "Add buffer only to close make easier unloading buffers
+        Bundle 'vim-scripts/BufOnly.vim'
+        "Add #define highlighting syntax for C files
+        Bundle 'vim-scripts/ifdef-highlighting'
+        "Add spellcheck highlighting for XML/XSLT files
+        Bundle 'pmb-btw/xml-syntax'
+"   }
 "   neovim {
 "       TODO XXX FIXME THE BUNDLES FOLDER NEEDS TO BE DIFFERENT FOR NEOVIM
 "       otherwhise it will install/uninstall stuff also on the other vim!

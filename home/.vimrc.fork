@@ -3,6 +3,11 @@
 "   Customizations on top of spf13 vim
 " }
 
+" General {
+    " set an online spell repository
+    let g:spellfile_URL = 'http://ftp.vim.org/vim/runtime/spell'
+" }
+
 " Formatting {
     " Long line wrapping rulez, add it back
     set wrap
@@ -85,7 +90,7 @@
         let g:airline#extensions#tabline#enabled = 1
         " Do not use the hunks (+0 ~0 -0 stuff in the branch indicator)
         let g:airline#extensions#hunks#enabled = 0
-        " Use hair space to separate ariline symbols to avoid garbage in gvim
+        " Use hair space to separate airline symbols to avoid garbage in gvim
         if !exists('g:airline_symbols')
             let g:airline_symbols = {}
         endif
@@ -184,29 +189,44 @@
         nnoremap <silent> <leader>ee :NERDTreeToggle<CR>
     endif
 
+    "vim-airline switch buffers
+    if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+        let g:airline#extensions#tabline#enabled= 1
+        let g:airline#extensions#tabline#buffer_idx_mode = 1
+        silent! nmap <leader>1 <Plug>AirlineSelectTab1
+        silent! nmap <leader>2 <Plug>AirlineSelectTab2
+        silent! nmap <leader>3 <Plug>AirlineSelectTab3
+        silent! nmap <leader>4 <Plug>AirlineSelectTab4
+        silent! nmap <leader>5 <Plug>AirlineSelectTab5
+        silent! nmap <leader>6 <Plug>AirlineSelectTab6
+        silent! nmap <leader>7 <Plug>AirlineSelectTab7
+        silent! nmap <leader>8 <Plug>AirlineSelectTab8
+        silent! nmap <leader>9 <Plug>AirlineSelectTab9
+    endif
+
+    "BufOnly unload all buffers but current one
+     if isdirectory(expand("~/.vim/bundle/BufOnly.vim/"))
+        nmap <leader>o :Bonly<CR>
+    endif
+
+    "Additional syntax for C/C++ files for enabling/disabling #ifdef
+    let $ifdefpath = expand("~/.vim/bundle/ifdef-highlighting/syntax/ifdef.vim")
+    if filereadable($ifdefpath)
+         autocmd FileType c,cpp source $ifdefpath
+    endif
+
+    "Additional syntax for XML/XSLT files for performing spellcheck on text
+    "inside xml tags.
+    let $ifdefpath = expand("~/.vim/bundle/xml-syntax/syntax/xml.vim")
+    if filereadable($ifdefpath)
+         autocmd FileType xml,xslt source $ifdefpath
+    endif
+
     " unite
     if isdirectory(expand("~/.vim/bundle/unite.vim/"))
         " use same keybindings as ctrl-p and buffergator
         nnoremap <silent> <c-p> :Unite -start-insert file<CR>
         nnoremap <silent> <leader>bb :Unite buffer<CR>
     endif
-
-    " disable arrows, insert, delete, home, end, pgup and pgdown keys
-    inoremap <Up> <NOP>
-    noremap <Up> <NOP>
-    inoremap <Down> <NOP>
-    noremap <Down> <NOP>
-    inoremap <Left> <NOP>
-    noremap <Left> <NOP>
-    inoremap <Right> <NOP>
-    noremap <Right> <NOP>
-    inoremap <PageUp> <NOP>
-    noremap <PageUp> <NOP>
-    inoremap <PageDown> <NOP>
-    noremap <PageDown> <NOP>
-    inoremap <Insert> <NOP>
-    noremap <Insert> <NOP>
-    inoremap <Del> <NOP>
-    noremap <Del> <NOP>
 " }
 
