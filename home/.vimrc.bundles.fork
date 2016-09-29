@@ -19,6 +19,16 @@
         Bundle 'editorconfig/editorconfig-vim'
         " TODO XXX FIXME: Temporary addition of vim-airline-themes until pw adds it
         Bundle 'vim-airline/vim-airline-themes'
+        "Add buffer only to close make easier unloading buffers
+        Bundle 'vim-scripts/BufOnly.vim'
+        "Add #define highlighting syntax for C files
+        Bundle 'vim-scripts/ifdef-highlighting'
+        "Add spellcheck highlighting for XML/XSLT files
+        Bundle 'pmb-btw/xml-syntax'
+        "Use tmux navigator to seamless navigation between panes and buffers
+        Bundle 'christoomey/vim-tmux-navigator'
+        "Add fast fold to reduce folding issues with autocomplete plugins
+        Bundle 'Konfekt/FastFold'
 "   }
 "   Removals {
         " removing vim-bufferline since vim-airline already displays the
@@ -43,6 +53,10 @@
         UnBundle 'terryma/vim-multiple-cursors'
         " not using abolish corrections
         UnBundle 'tpope/vim-abolish.git'
+        " not using snippets, slow!
+        UnBundle 'Shougo/neosnippet'
+        UnBundle 'Shougo/neosnippet-snippets'
+        UnBundle 'honza/vim-snippets'
 "   }
 "   Replacements {
         " removing html-autoclosetag, xmledit works better
@@ -57,14 +71,6 @@
         " Fix wrong solarized 256 color values
         UnBundle 'altercation/vim-colors-solarized'
         Bundle 'agvim/vim-colors-solarized'
-"   }
-"   New bundles {
-        "Add buffer only to close make easier unloading buffers
-        Bundle 'vim-scripts/BufOnly.vim'
-        "Add #define highlighting syntax for C files
-        Bundle 'vim-scripts/ifdef-highlighting'
-        "Add spellcheck highlighting for XML/XSLT files
-        Bundle 'pmb-btw/xml-syntax'
 "   }
 "   neovim {
 "       TODO XXX FIXME THE BUNDLES FOLDER NEEDS TO BE DIFFERENT FOR NEOVIM
