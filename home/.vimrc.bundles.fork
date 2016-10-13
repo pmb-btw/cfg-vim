@@ -29,6 +29,10 @@
         Bundle 'christoomey/vim-tmux-navigator'
         "Add fast fold to reduce folding issues with autocomplete plugins
         Bundle 'Konfekt/FastFold'
+        "Ingo library needed for some vim scripts
+        Bundle 'vim-scripts/ingo-library.git'
+        "Advanced spell checking
+        Bundle 'vim-scripts/SpellCheck.git'
 "   }
 "   Removals {
         " removing vim-bufferline since vim-airline already displays the
